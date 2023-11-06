@@ -25,9 +25,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "src/assets/css/styles.css",
+              "src/assets/css/swiper-bundle.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/scrollreveal/dist/scrollreveal.js",
+              "/src/assets/js/main/main.js",
+              "/src/assets/js/swiper-bundle.min/swiper-bundle.min.js",
+              "/src/assets/js/scrollreveal.min/scrollreveal.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -87,9 +95,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "src/assets/css/styles.css",
+              "src/assets/css/swiper-bundle.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/scrollreveal/dist/scrollreveal.js",
+              "/src/assets/js/main/main.js",
+              "/src/assets/js/swiper-bundle.min/swiper-bundle.min.js",
+              "/src/assets/js/scrollreveal.min/scrollreveal.min.js"
+            ]
           }
         }
       }
