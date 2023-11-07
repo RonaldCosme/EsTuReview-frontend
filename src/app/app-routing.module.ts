@@ -13,6 +13,7 @@ import { UniversityComponent } from './components/university/university.componen
 import { CourseComponent } from './components/course/course.component';
 import { ReviewComponent } from './components/review/review.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AddEditUniversityComponent } from './components/university/add-edit-university/add-edit-university.component';
 
 const routes: Routes = [
   { path: 'home', component: LandingComponent },
@@ -23,9 +24,11 @@ const routes: Routes = [
   { path: 'review', component: ReviewComponent },
   { path: 'review-comment', component: ReviewComentComponent },
   { path: 'role', component: RoleComponent },
-  { path: 'university', component: UniversityComponent },
   { path: 'course', component: CourseComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'edit/:id', component: AddEditUniversityComponent},
+  {path: 'university', component: UniversityComponent},
+
   //falta linkear con una vista de dashboard
 ];
 

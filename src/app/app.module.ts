@@ -25,6 +25,11 @@ import {MatPaginatorModule} from '@angular/material/paginator'
 import { MatMenuModule } from '@angular/material/menu';
 import{MatIconModule} from '@angular/material/icon'
 import { HttpClientModule } from '@angular/common/http';
+import { AddEditUniversityComponent } from './components/university/add-edit-university/add-edit-university.component';
+import { ConfirmDeleteUniversityComponent } from './components/university/confirm-delete-university/confirm-delete-university.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 //Start services
 import { ScriptChargeService } from './services/script-charge.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -41,6 +46,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     UserAppComponent,
     LandingComponent,
     DashboardComponent,
+    AddEditUniversityComponent,
+    ConfirmDeleteUniversityComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +69,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MatPaginatorModule,
     MatMenuModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
+    
   ],
   providers: [ScriptChargeService],
   bootstrap: [AppComponent]

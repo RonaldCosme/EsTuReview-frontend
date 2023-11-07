@@ -62,4 +62,69 @@
     </button>
 </mat-menu>
 
+<div class="search-bar">
+    <mat-form-field appearance="outline" >
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Escribe para filtrar">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+</div>
+
+<div class="university-list">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+      <!-- Columna de ID -->
+      <ng-container matColumnDef="universityId">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let university"> {{university.universityId}} </mat-cell>
+      </ng-container>
+      
+      <!-- Columna de Nombre -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let university"> {{university.name}} </mat-cell>
+      </ng-container>
+      
+      <!-- Columna de Campus -->
+      <ng-container matColumnDef="campus">
+        <mat-header-cell *matHeaderCellDef> Campus </mat-header-cell>
+        <mat-cell *matCellDef="let university"> {{university.campus}} </mat-cell>
+      </ng-container>
+      
+      <!-- Columna de Ubicación -->
+      <ng-container matColumnDef="location">
+        <mat-header-cell *matHeaderCellDef> Ubicación </mat-header-cell>
+        <mat-cell *matCellDef="let university"> {{university.location}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+        <mat-cell *matCellDef="let university"> {{university.description}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let item">
+            <a style="cursor: pointer;" routerLink="/edit/{{item.id}}">
+                <mat-icon>edit</mat-icon>
+            </a>
+            <a style="cursor: pointer;"  (click)="deleteUniversity(item.id)">
+                <mat-icon>delete</mat-icon>
+            </a>         
+
+        </td>
+      </ng-container>
+  
+      <!-- Cabecera y filas de la tabla -->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    
+
+
+  </div>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+
 <router-outlet></router-outlet>
