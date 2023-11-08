@@ -33,16 +33,16 @@ export class AddEditUniversityComponent {
 
     this.addEditForm = this.formBuilder.group(
       {
-      universityId: [''],
-      name: [''],
-      campus: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      location: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      description: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      universityId: [""],
+      name: [""],
+      campus: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      location: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      description: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       }
       
     );
 
-    this.id = this.activatedRoute.snapshot.params['id'];
+    this.id = this.activatedRoute.snapshot.params['universityId'];
     if(this.id!=0 && this.id!=undefined) {
       this.moodInsert = false;
       this.UniversityServiceService.getUniversityById(this.id).subscribe( {

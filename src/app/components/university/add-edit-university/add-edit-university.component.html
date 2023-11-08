@@ -14,7 +14,7 @@
     <mat-form-field>
         <mat-label>Nombre</mat-label>
         <input matInput formControlName="name" placeholder=" Ingrese Nombre">
-        <div *ngIf="addEditForm.get('name')?.hasError('requiered')&& addEditForm.get('name')?.touched">
+        <div *ngIf="addEditForm.get('name')?.hasError('required')&& addEditForm.get('name')?.touched">
           <span style="color: red;">Este campo es obligatorio</span>
         </div>
         <div *ngIf="addEditForm.get('name')?.hasError('minlength') && addEditForm.get('name')?.touched">
@@ -27,7 +27,7 @@
     <mat-form-field>
         <mat-label>Capmpus</mat-label>
         <input matInput formControlName="campus" placeholder=" Ingrese el campus">
-        <div *ngIf="addEditForm.get('address')?.hasError('requiered')&& addEditForm.get('address')?.touched">
+        <div *ngIf="addEditForm.get('address')?.hasError('required')&& addEditForm.get('address')?.touched">
           <span style="color: red;">Este campo es obligatorio</span>
         </div>
         <div *ngIf="addEditForm.get('address')?.hasError('minlength') && addEditForm.get('address')?.touched">
@@ -41,7 +41,7 @@
     <mat-form-field>
         <mat-label>Direccion</mat-label>
         <input matInput formControlName="location" placeholder=" Ingrese Direccion">
-        <div *ngIf="addEditForm.get('address')?.hasError('requiered')&& addEditForm.get('address')?.touched">
+        <div *ngIf="addEditForm.get('address')?.hasError('required')&& addEditForm.get('address')?.touched">
           <span style="color: red;">Este campo es obligatorio</span>
         </div>
         <div *ngIf="addEditForm.get('address')?.hasError('minlength') && addEditForm.get('address')?.touched">
@@ -55,7 +55,7 @@
     <mat-form-field>
         <mat-label>Descripcion</mat-label>
         <input matInput formControlName="description" placeholder=" Ingrese Descripcion">
-        <div *ngIf="addEditForm.get('description')?.hasError('requiered')&& addEditForm.get('description')?.touched">
+        <div *ngIf="addEditForm.get('description')?.hasError('required')&& addEditForm.get('description')?.touched">
           <span style="color: red;">Este campo es obligatorio</span>
         </div>
         <div *ngIf="addEditForm.get('description')?.hasError('minlength') && addEditForm.get('description')?.touched">

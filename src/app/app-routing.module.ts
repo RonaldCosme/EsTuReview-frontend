@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'edit/:id', component: AddEditUniversityComponent},
   {path: 'university', component: UniversityComponent},
+  {path: 'new', component: AddEditUniversityComponent},
 
   //falta linkear con una vista de dashboard
 ];

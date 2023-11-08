@@ -28,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddEditUniversityComponent } from './components/university/add-edit-university/add-edit-university.component';
 import { ConfirmDeleteUniversityComponent } from './components/university/confirm-delete-university/confirm-delete-university.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 //Start services
@@ -70,7 +72,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
     
   ],
   providers: [ScriptChargeService],
