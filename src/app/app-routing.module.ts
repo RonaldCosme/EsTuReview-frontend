@@ -13,6 +13,8 @@ import { UniversityComponent } from './components/university/university.componen
 import { CourseComponent } from './components/course/course.component';
 import { ReviewComponent } from './components/review/review.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NawAllInsertCourseComponent } from './components/course/naw-all-insert-course/naw-all-insert-course.component';
+
 
 const routes: Routes = [
   { path: 'home', component: LandingComponent },
@@ -25,7 +27,9 @@ const routes: Routes = [
   { path: 'role', component: RoleComponent },
   { path: 'university', component: UniversityComponent },
   { path: 'course', component: CourseComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'crear-course', component:NawAllInsertCourseComponent }
+
   //falta linkear con una vista de dashboard
 ];
 
