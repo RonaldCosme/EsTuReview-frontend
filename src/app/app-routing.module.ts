@@ -13,6 +13,9 @@ import { UniversityComponent } from './components/university/university.componen
 import { CourseComponent } from './components/course/course.component';
 import { ReviewComponent } from './components/review/review.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NawAllInsertCourseComponent } from './components/course/naw-all-insert-course/naw-all-insert-course.component';
+import { AddEditUniversityComponent } from './components/university/add-edit-university/add-edit-university.component';
+
 
 const routes: Routes = [
   { path: 'home', component: LandingComponent },
@@ -24,7 +27,15 @@ const routes: Routes = [
   { path: 'review-comment', component: ReviewComentComponent },
   { path: 'role', component: RoleComponent },
   { path: 'course', component: CourseComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'crear-course', component:NawAllInsertCourseComponent },
+  { path: 'university', component: UniversityComponent },
+  { path: 'add-edit-university', component: AddEditUniversityComponent },
+  { path: 'new', component: AddEditUniversityComponent},
+  { path: 'edit/:universityId', component: AddEditUniversityComponent},
+  
+
+  
   //falta linkear con una vista de dashboard
 ];
 
