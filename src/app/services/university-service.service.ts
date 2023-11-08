@@ -24,6 +24,10 @@ export class UniversityServiceService {
     return this.http.post<University>(this.baseUrl, university);
   }
 
+  updateUniversity(id: number, university: University): Observable<University> {
+    return this.http.put<University>(`${this.baseUrl}/${id}`, university);
+  }
+
   deleteUniversity(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
