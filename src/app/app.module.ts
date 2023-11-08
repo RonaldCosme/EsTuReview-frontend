@@ -25,9 +25,13 @@ import {MatPaginatorModule} from '@angular/material/paginator'
 import { MatMenuModule } from '@angular/material/menu';
 import{MatIconModule} from '@angular/material/icon'
 import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 //Start services
 import { ScriptChargeService } from './services/script-charge.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ListCourseComponent } from './components/course/list-course/list-course.component';
+import { InsertCourseComponent } from './components/course/insert-course/insert-course.component';
+import { NawAllInsertCourseComponent } from './components/course/naw-all-insert-course/naw-all-insert-course.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +45,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     UserAppComponent,
     LandingComponent,
     DashboardComponent,
+    ListCourseComponent,
+    InsertCourseComponent,
+    NawAllInsertCourseComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +69,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MatPaginatorModule,
     MatMenuModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
   ],
   providers: [ScriptChargeService],
   bootstrap: [AppComponent]
