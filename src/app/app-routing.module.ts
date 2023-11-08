@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'role', component: RoleComponent },
   { path: 'course', component: CourseComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'edit/:id', component: AddEditUniversityComponent},
+  { path: 'edit/:universityId', component: AddEditUniversityComponent},
   {path: 'university', component: UniversityComponent},
   {path: 'new', component: AddEditUniversityComponent},
 
