@@ -66,5 +66,7 @@ export class ListCourseComponent implements OnInit{
 
   editCourse(course: Course):void{
 
+
+
   }
 }
