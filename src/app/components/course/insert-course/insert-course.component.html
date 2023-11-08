@@ -1,0 +1,33 @@
+<div class="custom-insert-container">
+    <h2>Add New Course</h2>
+
+    <form [formGroup]="customCourseForm" (ngSubmit)="addCustomCourse()">
+        <mat-form-field class="custom-form-field">
+            <mat-label>Course Name</mat-label>
+            <input matInput formControlName="courseName" placeholder="Enter course name" />
+        </mat-form-field>
+
+        <mat-form-field class="custom-form-field">
+            <mat-label>Course Code</mat-label>
+            <input matInput formControlName="courseCode" placeholder="Enter course code" />
+        </mat-form-field>
+
+        <mat-form-field class="custom-form-field">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" placeholder="Enter description"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="custom-form-field">
+            <mat-label>University ID</mat-label>
+            <input matInput formControlName="universityId" type="number" placeholder="Enter university ID" />
+        </mat-form-field>
+
+        <div class="custom-button-container">
+            <button mat-raised-button color="primary" type="submit" [disabled]="customCourseForm.invalid">Add Custom
+                Course</button>
+            <button mat-raised-button color="accent" routerLink="/course" class="custom-back-button">
+                Back to Courses
+            </button>
+        </div>
+    </form>
+</div>
