@@ -873,3 +873,9 @@ body.dark-theme {
     right: 3rem;
   }
 }
+
+.home {
+  position: relative;
+  overflow: hidden;
+}
+
