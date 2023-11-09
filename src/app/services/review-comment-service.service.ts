@@ -24,6 +24,10 @@ export class ReviewCommentServiceService {
     return this.http.post<ReviewComment>(this.baseUrl, reviewComment);
   }
 
+  updateReviewComment(id: number, reviewComment: ReviewComment): Observable<ReviewComment> {
+    return this.http.put<ReviewComment>(`${this.baseUrl}/${id}`, reviewComment);
+  }
+
   deleteReviewComment(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }

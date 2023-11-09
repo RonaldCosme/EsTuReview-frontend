@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReviewComentComponent } from './review-coment.component';
+import { ReviewComentComponent } from './reviewcoment.component';
 
-describe('ReviewComentComponent', () => {
+describe('ReviewcomentComponent', () => {
   let component: ReviewComentComponent;
   let fixture: ComponentFixture<ReviewComentComponent>;
 

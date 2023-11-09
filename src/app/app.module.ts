@@ -7,7 +7,7 @@ import { CourseComponent } from './components/course/course.component';
 import { ModerationActionComponent } from './components/moderation-action/moderation-action.component';
 import { ProfessorComponent } from './components/professor/professor.component';
 import { ReviewComponent } from './components/review/review.component';
-import { ReviewComentComponent } from './components/review-coment/review-coment.component';
+import { ReviewComentComponent } from './components/reviewcoment/reviewcoment.component';
 import { RoleComponent } from './components/role/role.component';
 import { UniversityComponent } from './components/university/university.component';
 import { UserAppComponent } from './components/user-app/user-app.component';
@@ -26,7 +26,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule} from '@angular/material/icon'
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule} from '@angular/material/dialog';
+
+
 
 
 //Start services
@@ -37,6 +39,9 @@ import { InsertCourseComponent } from './components/course/insert-course/insert-
 import { NawAllInsertCourseComponent } from './components/course/naw-all-insert-course/naw-all-insert-course.component';
 import { AddEditUniversityComponent } from './components/university/add-edit-university/add-edit-university.component';
 import { ConfirmDeleteUniversityComponent } from './components/university/confirm-delete-university/confirm-delete-university.component';
+import { AddEditReviewComentComponent } from './components/reviewcoment/add-edit-review-coment/add-edit-review-coment.component';
+import { ConfirmDeleteReviewComentComponent } from './components/reviewcoment/confirm-delete-review-coment/confirm-delete-review-coment.component';
+
 
 
 
@@ -58,6 +63,9 @@ import { ConfirmDeleteUniversityComponent } from './components/university/confir
     NawAllInsertCourseComponent,
     AddEditUniversityComponent,
     ConfirmDeleteUniversityComponent,
+    AddEditReviewComentComponent,
+    ConfirmDeleteReviewComentComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -81,7 +89,8 @@ import { ConfirmDeleteUniversityComponent } from './components/university/confir
     MatToolbarModule,
     MatIconModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+
 
     
   ],
