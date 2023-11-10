@@ -41,6 +41,7 @@ import { AddEditUniversityComponent } from './components/university/add-edit-uni
 import { ConfirmDeleteUniversityComponent } from './components/university/confirm-delete-university/confirm-delete-university.component';
 import { AddEditReviewComentComponent } from './components/reviewcoment/add-edit-review-coment/add-edit-review-coment.component';
 import { ConfirmDeleteReviewComentComponent } from './components/reviewcoment/confirm-delete-review-coment/confirm-delete-review-coment.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -65,6 +66,7 @@ import { ConfirmDeleteReviewComentComponent } from './components/reviewcoment/co
     ConfirmDeleteUniversityComponent,
     AddEditReviewComentComponent,
     ConfirmDeleteReviewComentComponent,
+    LoginComponent,
     
   ],
   imports: [
