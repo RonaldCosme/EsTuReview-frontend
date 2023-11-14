@@ -18,6 +18,7 @@ import { ReviewComment } from './model/ReviewComment';
 import { AddEditReviewComentComponent } from './components/reviewcoment/add-edit-review-coment/add-edit-review-coment.component';
 import { LoginComponent } from './components/login/login.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { NawAllInsertProfessorComponent } from './components/professor/naw-all-insert-professor/naw-all-insert-professor.component';
 
 
 
@@ -25,7 +26,6 @@ const routes: Routes = [
   { path: 'home', component: LandingComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'professor', component: ProfessorComponent },
   { path: 'moderation-action', component: ModerationActionComponent },
   { path: 'review', component: ReviewComponent },
   { path: 'role', component: RoleComponent },
@@ -49,6 +49,13 @@ const routes: Routes = [
   { path: 'add-edit-review-coment', component: AddEditReviewComentComponent },
   { path: 'new', component: AddEditReviewComentComponent },
   { path: 'edit/:commentId', component: ReviewComentComponent },
+
+  { path: 'professor', component: ProfessorComponent },
+  { path: 'crear-professor', component:NawAllInsertProfessorComponent },
+  { path: 'eliminar-professor', component:NawAllInsertProfessorComponent },
+  { path: 'editProfessor/:professorId', component: NawAllInsertProfessorComponent},  
+  { path: 'update-professor', component:NawAllInsertProfessorComponent },
+   
 
 
 

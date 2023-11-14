@@ -34,6 +34,7 @@ import Swal from 'sweetalert2';
 
 
 
+
 //Start services
 import { ScriptChargeService } from './services/script-charge.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -47,6 +48,9 @@ import { ConfirmDeleteReviewComentComponent } from './components/reviewcoment/co
 import { LoginComponent } from './components/login/login.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { MyProfileDetailsComponent } from './components/my-profile/my-profile-details/my-profile-details.component';
+import { InsertProfessorComponent } from './components/professor/insert-professor/insert-professor.component';
+import { NawAllInsertProfessorComponent } from './components/professor/naw-all-insert-professor/naw-all-insert-professor.component';
+import { ListProfessorComponent } from './components/professor/list-professor/list-professor.component';
 
 
 
@@ -74,6 +78,9 @@ import { MyProfileDetailsComponent } from './components/my-profile/my-profile-de
     LoginComponent,
     MyProfileComponent,
     MyProfileDetailsComponent,
+    InsertProfessorComponent,
+    NawAllInsertProfessorComponent,
+    ListProfessorComponent,
     
   ],
   imports: [

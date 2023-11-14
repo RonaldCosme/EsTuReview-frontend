@@ -1,0 +1,57 @@
+<div class="custom-insert-container">
+    <h2>Add New Professor</h2>
+
+    <form [formGroup]="customProfessorForm" (ngSubmit)="addCustomProfessor()">
+       
+        <mat-form-field class="custom-form-field">
+            <mat-label>Id</mat-label>
+            <input matInput formControlName="professorId" readonly="true" />
+        </mat-form-field>
+       
+       <!--  <mat-form-field class="custom-form-field">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" placeholder="Enter professor name" />
+        </mat-form-field> -->
+
+      <!--   <mat-form-field class="custom-form-field">
+            <mat-label>Lastname</mat-label>
+            <input matInput formControlName="lastname" placeholder="Enter professor lastname" />
+        </mat-form-field> -->
+
+        <mat-form-field class="custom-form-field">
+            <mat-label>Faculty</mat-label>
+            <input matInput formControlName="faculty" placeholder="Enter Faculty" />
+        </mat-form-field>
+
+     <!--   <mat-form-field class="custom-form-field">
+            <mat-label>Faculty</mat-label>
+            <textarea matInput formControlName="faculty" placeholder="Enter Faculty"></textarea>
+        </mat-form-field> -->
+
+      <!--  <mat-form-field class="custom-form-field">
+            <mat-label>Date Join</mat-label>
+            <input matInput formControlName="joinDate" type="date" placeholder="Enter Date" />
+        </mat-form-field> -->
+
+        <mat-form-field class="custom-form-field">
+            <mat-label>Date Join</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="joinDate"    >
+          <!-- <mat-hint>{{getDateFormatString()}}</mat-hint>--> 
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="custom-form-field">
+            <mat-label>User ID</mat-label>
+            <input matInput formControlName="userappId" type="number" placeholder="Enter User ID" />
+        </mat-form-field>  
+
+        <div class="custom-button-container">
+            <button mat-raised-button color="primary" type="submit" [disabled]="customProfessorForm.invalid">Add Custom
+                Profesor</button>
+            <button mat-raised-button color="accent" routerLink="/professor" class="custom-back-button">
+                Back to Profesor
+            </button>
+        </div>
+    </form>
+</div>
