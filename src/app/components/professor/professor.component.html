@@ -1,0 +1,66 @@
+<!-- Tu componente HTML -->
+<mat-toolbar color="primary" class="professor-toolbar">
+    <button mat-icon-button [matMenuTriggerFor]="menuCine">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <button mat-button routerLink="/professor">
+        <mat-icon>school</mat-icon>
+        Professor
+    </button>
+
+    <span class="espacio_extendido"></span>
+    <div *ngIf="userLogged()">
+        <button routerLink="/home" (click)="logout()" mat-raised-button color="accent">Home</button> |
+        <button mat-raised-button (click)="logout()" routerLink="/login" color="warn">LogOut</button>
+    </div>
+
+    <button mat-button routerLink="/crear-profesor">
+        <mat-icon>add</mat-icon> Crear
+    </button>
+
+    <button mat-button routerLink="/eliminar-profesor">
+        <mat-icon>delete</mat-icon> Eliminar
+    </button>
+</mat-toolbar>
+
+<mat-menu #menuCine="matMenu">
+    <button mat-menu-item routerLink="/login">
+        <mat-icon>person</mat-icon>
+        Login
+    </button>
+
+    <button mat-menu-item routerLink="/moderation-action">
+        <mat-icon>build</mat-icon>
+        Moderation Action
+    </button>
+
+    <button mat-menu-item routerLink="/review">
+        <mat-icon>rate_review</mat-icon>
+        Review
+    </button>
+
+    <button mat-menu-item routerLink="/course">
+        <mat-icon>book</mat-icon>
+        Course
+    </button>
+
+    <button mat-menu-item routerLink="/reviewcomment">
+        <mat-icon>comment</mat-icon>
+        Review Comment
+    </button>
+
+    <button mat-menu-item routerLink="/role">
+        <mat-icon>security</mat-icon>
+        Role
+    </button>
+
+    <button mat-menu-item routerLink="/university">
+        <mat-icon>account_balance</mat-icon>
+        University
+    </button>
+
+
+</mat-menu>
+
+<router-outlet class="professor-view"></router-outlet>
