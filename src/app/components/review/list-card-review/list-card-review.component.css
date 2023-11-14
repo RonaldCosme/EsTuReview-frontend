@@ -1,0 +1,33 @@
+.tarjeta {
+    /*   min-width: 400px;*/
+       max-width: 600px;
+   }
+   
+   .circular {
+       border-radius: 50%;
+   }
+   
+   .contenedor2 {
+       height: 50vh;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+   
+   .example-card {
+       max-width: 400px;
+   }
+   
+   .contenedor3 { 
+       display: grid;
+       text-align: center;
+       justify-content: center;
+       align-items: center;
+   }
+   
+   .contenedor4 {
+       height: 10vh;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }

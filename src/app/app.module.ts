@@ -51,6 +51,8 @@ import { MyProfileDetailsComponent } from './components/my-profile/my-profile-de
 import { InsertProfessorComponent } from './components/professor/insert-professor/insert-professor.component';
 import { NawAllInsertProfessorComponent } from './components/professor/naw-all-insert-professor/naw-all-insert-professor.component';
 import { ListProfessorComponent } from './components/professor/list-professor/list-professor.component';
+import { ListCardReviewComponent } from './components/review/list-card-review/list-card-review.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -81,6 +83,7 @@ import { ListProfessorComponent } from './components/professor/list-professor/li
     InsertProfessorComponent,
     NawAllInsertProfessorComponent,
     ListProfessorComponent,
+    ListCardReviewComponent,
     
   ],
   imports: [
@@ -108,6 +111,7 @@ import { ListProfessorComponent } from './components/professor/list-professor/li
     MatSnackBarModule,
     MatDialogModule,
     MatSelectModule,
+    MatCardModule
 
     
   ],

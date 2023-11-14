@@ -7,13 +7,4 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent {
-  constructor(private userService: UserService) {}
-
-  logout() {
-    this.userService.logout();    
-  }
-
-  userLogged() {
-    return this.userService.getCurrentUserId()==null?false:true;
-  }
 }

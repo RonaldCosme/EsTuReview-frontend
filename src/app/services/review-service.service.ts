@@ -27,4 +27,11 @@ export class ReviewServiceService {
   deleteReview(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
+
+
+  getReviewByIdProfessor(idProfessor: number): Observable<Review[]> {
+    return this.http.get<Review[]>(`${this.baseUrl}/${idProfessor}/${idProfessor}`);
+  }
+
+
 }

@@ -19,6 +19,7 @@ import { AddEditReviewComentComponent } from './components/reviewcoment/add-edit
 import { LoginComponent } from './components/login/login.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { NawAllInsertProfessorComponent } from './components/professor/naw-all-insert-professor/naw-all-insert-professor.component';
+import { ListCardReviewComponent } from './components/review/list-card-review/list-card-review.component';
 
 
 
@@ -55,7 +56,8 @@ const routes: Routes = [
   { path: 'eliminar-professor', component:NawAllInsertProfessorComponent },
   { path: 'editProfessor/:professorId', component: NawAllInsertProfessorComponent},  
   { path: 'update-professor', component:NawAllInsertProfessorComponent },
-   
+  { path: 'verReviewProfessor/:professorId', component:ListCardReviewComponent},  
+
 
 
 
