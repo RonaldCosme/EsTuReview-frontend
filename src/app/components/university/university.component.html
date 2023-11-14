@@ -1,0 +1,130 @@
+<!-- Tu componente HTML -->
+<mat-toolbar color="primary" class="professor-toolbar">
+    <button mat-icon-button [matMenuTriggerFor]="menuCine">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <!-- Botón para la vista de University -->
+    <button mat-button routerLink="/university">
+        <mat-icon>account_balance</mat-icon>
+        University
+    </button>
+
+    <span class="espacio_extendido"></span>
+    <div *ngIf="userLogged()">
+        <button routerLink="/home" (click)="logout()" mat-raised-button color="accent">Home</button> |
+        <button mat-raised-button (click)="logout()" routerLink="/login" color="warn">LogOut</button>
+    </div>
+
+    <button mat-button routerLink="/new">
+        <mat-icon>add</mat-icon> Crear
+    </button>
+</mat-toolbar>
+
+<mat-menu #menuCine="matMenu">
+    <button mat-menu-item routerLink="/login">
+        <mat-icon>person</mat-icon>
+        Login
+    </button>
+
+    <button mat-menu-item routerLink="/moderation-action">
+        <mat-icon>build</mat-icon>
+        Moderation Action
+    </button>
+
+    <button mat-menu-item routerLink="/review">
+        <mat-icon>rate_review</mat-icon>
+        Review
+    </button>
+
+    <button mat-menu-item routerLink="/reviewcomment">
+        <mat-icon>comment</mat-icon>
+        Review Comment
+    </button>
+
+    <button mat-menu-item routerLink="/course">
+        <mat-icon>book</mat-icon>
+        Course
+    </button>
+
+    <button mat-menu-item routerLink="/professor">
+        <mat-icon>school</mat-icon>
+        Professor
+    </button>
+
+    <!-- Botón para la vista de Role -->
+    <button mat-menu-item routerLink="/role">
+        <mat-icon>security</mat-icon>
+        Role
+    </button>
+</mat-menu>
+<br><br>
+<!-- Búsqueda -->
+<div class="search-bar">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Buscar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Escribe para filtrar">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+  
+  <!-- Lista de Universidades -->
+  <div class="university-list">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <!-- Columna de ID -->
+      <ng-container matColumnDef="universityId">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let university">{{university.universityId}}</mat-cell>
+      </ng-container>
+  
+      <!-- Columna de Nombre -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let university">{{university.name}}</mat-cell>
+      </ng-container>
+  
+      <!-- Columna de Campus -->
+      <ng-container matColumnDef="campus">
+        <mat-header-cell *matHeaderCellDef> Campus </mat-header-cell>
+        <mat-cell *matCellDef="let university">{{university.campus}}</mat-cell>
+      </ng-container>
+  
+      <!-- Columna de Ubicación -->
+      <ng-container matColumnDef="location">
+        <mat-header-cell *matHeaderCellDef> Ubicación </mat-header-cell>
+        <mat-cell *matCellDef="let university">{{university.location}}</mat-cell>
+      </ng-container>
+  
+      <!-- Columna de Descripción -->
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+        <mat-cell *matCellDef="let university">{{university.description}}</mat-cell>
+      </ng-container>
+  
+      <!-- Columna de Acciones -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+        <mat-cell *matCellDef="let item">
+          <a style="cursor:pointer;" routerLink= "/edit/{{item.universityId}}">
+            <mat-icon>edit</mat-icon>
+          </a>
+          <a style="cursor: pointer;" (click)="deleteUniversity(item.universityId)">
+            <mat-icon>delete</mat-icon>
+          </a>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Cabecera y filas de la tabla -->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+  
+  <!-- Paginación -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  
+  <!-- Router Outlet -->
+  <router-outlet></router-outlet>
+  
