@@ -30,6 +30,29 @@
                     <span style="color: red">Este campo es obligatorio</span>
                 </div>
 
+                <input matInput formControlName="firstName" placeholder="Nombre" class="styled-input">
+                <div
+                    *ngIf="registerForm.get('firstName')?.hasError('required') && registerForm.get('firstName')?.touched">
+                    <span style="color: red">Este campo es obligatorio</span>
+                </div>
+
+                <input matInput formControlName="lastName" placeholder="Apellido" class="styled-input">
+                <div
+                    *ngIf="registerForm.get('lastName')?.hasError('required') && registerForm.get('lastName')?.touched">
+                    <span style="color: red">Este campo es obligatorio</span>
+                </div>
+
+                <div class="date-picker-container">
+                    <input matInput formControlName="birthdate" placeholder="Fecha de nacimiento" [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker" class="mat-datepicker-toggle-default-icon">
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-datepicker-toggle>
+                </div>
+                <div
+                    *ngIf="registerForm.get('birthdate')?.hasError('required') && registerForm.get('birthdate')?.touched">
+                    <span style="color: red">Este campo es obligatorio</span>
+                </div>
+
                 <mat-select formControlName="userType" placeholder="Rol" class="styled-input">
                     <mat-option value="ROLE_ALUMNO">Alumno</mat-option>
                     <mat-option value="ROLE_PROFESSOR">Profesor</mat-option>

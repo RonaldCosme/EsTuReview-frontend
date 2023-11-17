@@ -1,1 +1,13 @@
-<p>my-profile-details works!</p>
+<div class="profile-container" *ngIf="user">
+    <h2>Mi Perfil</h2>
+    <div class="profile-details">
+      <p><strong>Nombre de Usuario:</strong> {{ user.userName }}</p>
+      <p><strong>Nombre:</strong> {{ user.firstName }}</p>
+      <p><strong>Apellido:</strong> {{ user.lastName }}</p>
+      <p><strong>Fecha de Nacimiento:</strong> {{ user.birthdate | date:'mediumDate' }}</p>
+    </div>
+  </div>
+  
+  <div *ngIf="!user">
+    <p>Cargando detalles del perfil...</p>
+  </div>

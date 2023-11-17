@@ -74,10 +74,14 @@ export class LoginComponent implements OnInit {
   loginUser() {
     const user: User = {
       id: 0,
+      firstName: "",
+      lastName: "",
+      birthdate: new Date(),
       userName: this.loginForm.get("userName")!.value,
       password: this.loginForm.get("password")!.value,
       type: "ROLE_ALUMNO"
     };
+
 
     this.userService.login(user).subscribe({
       next: (data) => {
@@ -119,7 +123,11 @@ export class LoginComponent implements OnInit {
       {
         userName_Register: ["", [Validators.required, Validators.maxLength(20), Validators.minLength(4)]],
         password_Register: ["", [Validators.required, Validators.maxLength(20), Validators.minLength(4)]],
-        userType: ["", [Validators.required],],
+        userType: ["", [Validators.required]],
+        // Nuevos campos en el formulario de registro
+        firstName: ["", [Validators.required]],
+        lastName: ["", [Validators.required]],
+        birthdate: ["", [Validators.required]],
       }
     );
 
@@ -138,7 +146,11 @@ export class LoginComponent implements OnInit {
       id: 0,
       userName: this.registerForm.get("userName_Register")!.value,
       password: this.registerForm.get("password_Register")!.value,
-      type: this.registerForm.get("userType")!.value
+      type: this.registerForm.get("userType")!.value,
+      // Obtener los valores de los nuevos campos
+      firstName: this.registerForm.get("firstName")!.value,
+      lastName: this.registerForm.get("lastName")!.value,
+      birthdate: this.registerForm.get("birthdate")!.value,
     };
 
     this.userService.addUser(user_register).subscribe({

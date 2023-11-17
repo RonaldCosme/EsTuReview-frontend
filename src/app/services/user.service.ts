@@ -31,6 +31,10 @@ export class UserService {
       })
     );
   }
+  
+  getUserById(id: number) {
+    return this.http.get<User>(`${this.ruta_servidor}/${this.recurso}/${id}`);
+  }
 
   getCurrentUserId(): number | null {
     let userId: string | null = localStorage.getItem('user_id');

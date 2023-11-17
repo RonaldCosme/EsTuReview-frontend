@@ -284,3 +284,21 @@ div.mat-form-field span {
     background-color: #fff;
 }
 
+/* Agrega este estilo para el campo de fecha */
+.date-picker-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .mat-datepicker-toggle-default-icon {
+    position: absolute;
+    right: 10px; /* Ajusta el valor según tu preferencia */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
