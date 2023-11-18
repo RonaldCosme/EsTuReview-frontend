@@ -50,11 +50,9 @@ console.log("professorId-> " + this.id);
       this.professorServiceService.getProfessorById(this.id).subscribe( {
         next: (data: Professor) => {
           this.customProfessorForm.get('professorId')?.setValue(data.professorId);
-          //this.customProfessorForm.get('name')?.setValue(data.name);
-          //this.customProfessorForm.get('lastname')?.setValue(data.lastname);
+          this.customProfessorForm.get('userId')?.setValue(data.userId);
           this.customProfessorForm.get('faculty')?.setValue(data.faculty);
           this.customProfessorForm.get('joinDate')?.setValue(data.joinDate);
-          this.customProfessorForm.get('userappId')?.setValue(data.userappId);
         },
         error: (error: any) => {
           console.error('There was an error!', error);

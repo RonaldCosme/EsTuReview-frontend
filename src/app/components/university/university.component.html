@@ -10,27 +10,17 @@
         University
     </button>
 
-    <span class="espacio_extendido"></span>
-    <div *ngIf="userLogged()">
-        <button routerLink="/home" (click)="logout()" mat-raised-button color="accent">Home</button> |
-        <button mat-raised-button (click)="logout()" routerLink="/login" color="warn">LogOut</button>
-    </div>
-
     <button mat-button routerLink="/new">
         <mat-icon>add</mat-icon> Crear
     </button>
 </mat-toolbar>
 
 <mat-menu #menuCine="matMenu">
-    <button mat-menu-item routerLink="/login">
-        <mat-icon>person</mat-icon>
-        Login
-    </button>
 
-    <button mat-menu-item routerLink="/moderation-action">
-        <mat-icon>build</mat-icon>
-        Moderation Action
-    </button>
+  <button mat-menu-item routerLink="/my-profile">
+    <mat-icon>person</mat-icon>
+    My Profile
+</button>
 
     <button mat-menu-item routerLink="/review">
         <mat-icon>rate_review</mat-icon>
@@ -50,12 +40,6 @@
     <button mat-menu-item routerLink="/professor">
         <mat-icon>school</mat-icon>
         Professor
-    </button>
-
-    <!-- Botón para la vista de Role -->
-    <button mat-menu-item routerLink="/role">
-        <mat-icon>security</mat-icon>
-        Role
     </button>
 </mat-menu>
 <br><br>

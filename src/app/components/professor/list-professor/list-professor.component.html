@@ -18,8 +18,8 @@
       <thead>
         <tr>
           <th>Professor ID</th>
-          <th>Name</th>
-          <th>Lastname</th>
+
+          <th>UserID</th>
           <th>Faculty</th>
           <th>JoinDate</th>
           <th>Options</th>
@@ -28,11 +28,9 @@
       <tbody>
         <tr *ngFor="let professor of filteredProfessor">
           <td>{{ professor.professorId }}</td>
-          <!-- <td>{{ professor.name }}</td>
-          <td>{{ professor.lastname }}</td> -->
+          <td>{{ professor.userId}}</td>
           <td>{{ professor.faculty }}</td>
           <td>{{ professor.joinDate }}</td>
-  
           <td class="options-cell">
             <div class="options-wrapper">
              <!--  <button mat-icon-button color="primary" routerLink="/crear-professor" (click)="editProfessor(professor.professorId, professor)"> -->

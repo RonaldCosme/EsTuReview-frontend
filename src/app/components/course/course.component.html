@@ -10,14 +10,6 @@
         Course
     </button>
 
-    
-
-    <span class="espacio_extendido"></span>
-    <div *ngIf="userLogged()">
-        <button (click)="logoutHome()" mat-raised-button color="accent">Home</button> |
-        <button mat-raised-button (click)="logout()" color="warn">LogOut</button>
-    </div>
-
 </mat-toolbar>
 
 <mat-menu #menuCine="matMenu">
@@ -25,16 +17,6 @@
     <button mat-menu-item routerLink="/my-profile">
         <mat-icon>person</mat-icon>
         My Profile
-    </button>
-
-    <button mat-menu-item routerLink="/login">
-        <mat-icon>person</mat-icon>
-        Login
-    </button>
-
-    <button mat-menu-item routerLink="/moderation-action">
-        <mat-icon>build</mat-icon>
-        Moderation Action
     </button>
 
     <button mat-menu-item routerLink="/review">
@@ -45,11 +27,6 @@
     <button mat-menu-item routerLink="/reviewcomment">
         <mat-icon>comment</mat-icon>
         Review Comment
-    </button>
-
-    <button mat-menu-item routerLink="/role">
-        <mat-icon>security</mat-icon>
-        Role
     </button>
 
     <button mat-menu-item routerLink="/professor">
