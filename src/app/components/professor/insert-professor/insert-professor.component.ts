@@ -26,15 +26,15 @@ export class InsertProfessorComponent implements OnInit {
   ) {
     this.customProfessorForm = this.formBuilder.group({
       professorId: [''],
-      name: ['', Validators.required],
-      lastname: ['', Validators.required],
+     // name: ['', Validators.required],
+   //   lastname: ['', Validators.required],
       faculty: ['', Validators.required], 
-      userappId: ['', Validators.required], 
+      userId: ['', Validators.required], 
       joinDate: ['', Validators.required]
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     // Puedes realizar inicializaciones adicionales si es necesario
     this.loadForm();
   }
