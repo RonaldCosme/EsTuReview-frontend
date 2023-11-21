@@ -9,6 +9,8 @@ import { ReviewCommentServiceService } from 'src/app/services/review-comment-ser
 import { Review } from 'src/app/model/Review';
 import { ReviewComment } from 'src/app/model/ReviewComment';
 import { Professor } from 'src/app/model/Professor';
+import { MatDialog } from '@angular/material/dialog';
+import { AddEditReviewComentComponent } from '../../reviewcoment/add-edit-review-coment/add-edit-review-coment.component';
 
 
 
@@ -30,7 +32,11 @@ export class ListCardReviewComponent implements OnInit{
   filteredReviewCommentProfessor: ReviewComment[] = [];
   reviewsCardCommentProfessors: ReviewComment[] = [];
 
+  animal!: string;
+  name!: string;
+
   constructor(
+    public dialog:MatDialog,
     private formBuilder: FormBuilder,
     private router: Router, 
     private activatedRoute: ActivatedRoute,
@@ -60,10 +66,11 @@ console.log("professorId -> "+this.id);
         result =>  {this.filteredReviewProfessor = result}  
         ) */
       
-        this.reviewServiceService.getReviewByIdProfessor(this.id).subscribe( 
+       // this.reviewServiceService.getReviewByIdProfessor(this.id).subscribe( 
+        this.reviewServiceService.getAllReviews().subscribe( 
           (reviewss) => {
             this.reviewsCardProfessors = reviewss;
-            this.idReview = reviewss[0].reviewId;
+          //  this.idReview = reviewss[0].reviewId;
             this.filteredReviewProfessor = [...reviewss];
           },
           (error) => {
@@ -95,10 +102,11 @@ console.log("professorId -> "+this.id);
       result =>  {this.professorreview = result}
      );
 
-     this.reviewServiceService.getReviewByIdProfessor(this.id).subscribe( 
+     //this.reviewServiceService.getReviewByIdProfessor(this.id).subscribe( 
+      this.reviewServiceService.getAllReviews().subscribe( 
       (reviewss) => {
         this.reviewsCardProfessors = reviewss;        
-        this.idReview = reviewss[0].reviewId;
+       // this.idReview = reviewss[0].reviewId;
         this.filteredReviewProfessor = [...reviewss];
       },
       (error) => {
@@ -124,10 +132,11 @@ console.log("professorId -> "+this.id);
     this.professorServiceService.getProfessorById(this.id).subscribe( 
      result =>  {this.professorreview = result}
     );
-    this.reviewServiceService.getReviewByIdProfessor(this.id).subscribe( 
+    //this.reviewServiceService.getReviewByIdProfessor(this.id).subscribe( 
+      this.reviewServiceService.getAllReviews().subscribe( 
       (reviewss) => {
         this.reviewsCardProfessors = reviewss;
-        this.idReview = reviewss[0].reviewId;
+       // this.idReview = reviewss[0].reviewId;
         this.filteredReviewProfessor = [...reviewss];
       },
       (error) => {
@@ -145,5 +154,19 @@ console.log("professorId -> "+this.id);
       }
     );
  }
+
+ openDialog(): void {
+  const dialogRef = this.dialog.open(AddEditReviewComentComponent, {
+    data: {name: this.name, animal: this.animal},
+    height: '660px',
+    width: '300px'
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+    this.animal = result;
+  });
+
+  }
 
 }
