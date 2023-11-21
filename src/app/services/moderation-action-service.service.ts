@@ -8,7 +8,7 @@ import { ModerationAction } from '../model/ModerationAction';
 })
 export class ModerationActionServiceService {
 
-  private baseUrl = 'http://localhost:8080/api/moderationActions';
+  private baseUrl = 'http://www.estureview.online/api/moderationActions';
 
   constructor(private http: HttpClient) { }
 

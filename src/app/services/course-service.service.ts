@@ -8,7 +8,7 @@ import { Course } from '../model/Course';
 })
 export class CourseServiceService {
 
-  private baseUrl = 'https://www.estureview.online/api/courses';  
+  private baseUrl = 'http://www.estureview.online/api/courses';  
 
   constructor(private http: HttpClient) { }
 
