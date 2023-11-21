@@ -10,7 +10,7 @@ import { tap } from 'rxjs';
 })
 export class UserService {
 
-  ruta_servidor = "http://www.estureview.online/api";
+  ruta_servidor = "http://localhost:8080/api";
   recurso = "users";
 
   constructor(private http:HttpClient) { }

@@ -8,7 +8,7 @@ import { Review } from '../model/Review';
 })
 export class ReviewServiceService {
 
-  private baseUrl = 'http://www.estureview.online/api/reviews';
+  private baseUrl = 'http://localhost:8080/api/reviews';
 
   constructor(private http: HttpClient) { }
 
