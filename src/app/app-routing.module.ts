@@ -23,6 +23,7 @@ import { ListCardReviewComponent } from './components/review/list-card-review/li
 
 
 
+
 const routes: Routes = [
   { path: 'home', component: LandingComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

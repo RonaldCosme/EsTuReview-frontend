@@ -4,24 +4,11 @@
         <mat-icon>menu</mat-icon>
     </button>
 
-    <!-- Botón para la vista de Review -->
-    <button mat-button routerLink="/review">
-        <mat-icon>rate_review</mat-icon>
-        Review
-    </button>
-
     <button mat-button routerLink="/home">
         <mat-icon>home</mat-icon>
         Home
     </button>
 
-    <button mat-button routerLink="/crear-review">
-        <mat-icon>add</mat-icon> Crear
-    </button>
-
-    <button mat-button routerLink="/eliminar-review">
-        <mat-icon>delete</mat-icon> Eliminar
-    </button>
 </mat-toolbar>
 
 <mat-menu #menuCine="matMenu">
@@ -53,4 +40,5 @@
     </button>
 </mat-menu>
 
-<router-outlet></router-outlet>
+<app-view-review></app-view-review>
+```

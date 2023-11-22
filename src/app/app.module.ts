@@ -53,6 +53,7 @@ import { NawAllInsertProfessorComponent } from './components/professor/naw-all-i
 import { ListProfessorComponent } from './components/professor/list-professor/list-professor.component';
 import { ListCardReviewComponent } from './components/review/list-card-review/list-card-review.component';
 import { MatCardModule } from '@angular/material/card';
+import { ViewReviewComponent } from './components/review/view-review/view-review.component';
 
 
 
@@ -84,6 +85,7 @@ import { MatCardModule } from '@angular/material/card';
     NawAllInsertProfessorComponent,
     ListProfessorComponent,
     ListCardReviewComponent,
+    ViewReviewComponent,
     
   ],
   imports: [

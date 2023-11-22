@@ -3,5 +3,8 @@ export class Professor {
     userId: number = 0;
     faculty: string = '';
     joinDate: Date = new Date(Date.now());
+
+    userFirstname: string = '';
+    userLastname: string = '';
   }
   
