@@ -1,172 +1,87 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+
 import { ProfessorServiceService } from 'src/app/services/professor-service.service';
 import { ReviewServiceService } from 'src/app/services/review-service.service';
 import { ReviewCommentServiceService } from 'src/app/services/review-comment-service.service';
+
+import { Professor } from 'src/app/model/Professor';
 import { Review } from 'src/app/model/Review';
 import { ReviewComment } from 'src/app/model/ReviewComment';
-import { Professor } from 'src/app/model/Professor';
-import { MatDialog } from '@angular/material/dialog';
 import { AddEditReviewComentComponent } from '../../reviewcoment/add-edit-review-coment/add-edit-review-coment.component';
-
-
 
 @Component({
   selector: 'app-list-card-review',
   templateUrl: './list-card-review.component.html',
   styleUrls: ['./list-card-review.component.css']
 })
-export class ListCardReviewComponent implements OnInit{ 
- 
-  //professorReviewForm!: FormGroup;
+export class ListCardReviewComponent implements OnInit { 
   id!: number;
-  idReview!: number;
-  professorreview!:any;
-  //filteredReviewProfessor!:any;
+  professorReview!: Professor;
   filteredReviewProfessor: Review[] = [];
-  reviewsCardProfessors: Review[] = [];
-
   filteredReviewCommentProfessor: ReviewComment[] = [];
-  reviewsCardCommentProfessors: ReviewComment[] = [];
-
-  animal!: string;
-  name!: string;
 
   constructor(
-    public dialog:MatDialog,
-    private formBuilder: FormBuilder,
+    public dialog: MatDialog,
     private router: Router, 
     private activatedRoute: ActivatedRoute,
-    private professorServiceService: ProfessorServiceService,
-    private reviewServiceService: ReviewServiceService,    
-    private reviewCommentServiceService: ReviewCommentServiceService,  
+    private professorService: ProfessorServiceService,
+    private reviewService: ReviewServiceService,    
+    private reviewCommentService: ReviewCommentServiceService,  
     private snackBar: MatSnackBar
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
-    // Puedes realizar inicializaciones adicionales si es necesario
-    this.loadForm2();
+    this.loadInitialData();
   }
 
-
-  loadForm2() { 
-
+  private loadInitialData(): void {
     this.id = this.activatedRoute.snapshot.params['professorId']; 
-console.log("professorId -> "+this.id);
-    if(this.id!=0 && this.id!=undefined) {
-       this.professorServiceService.getProfessorById(this.id).subscribe( 
-        result =>  {this.professorreview = result}       
+    if (this.id) {
+      this.professorService.getProfessorById(this.id).subscribe(
+        result => this.professorReview = result,
+        error => console.error('Error loading professor:', error)
       );
 
-   /*   this.reviewServiceService.getReviewByIdProfessor(this.id).subscribe( 
-        result =>  {this.filteredReviewProfessor = result}  
-        ) */
-      
-       // this.reviewServiceService.getReviewByIdProfessor(this.id).subscribe( 
-        this.reviewServiceService.getAllReviews().subscribe( 
-          (reviewss) => {
-            this.reviewsCardProfessors = reviewss;
-          //  this.idReview = reviewss[0].reviewId;
-            this.filteredReviewProfessor = [...reviewss];
-          },
-          (error) => {
-            console.error('Error loading reviews:', error);
-          }
-        );
- 
-//        this.reviewCommentServiceService.getReviewCommentsByReviewId(this.idReview).subscribe( 
-  this.reviewCommentServiceService.getAllReviewComments().subscribe(
-          (reviewcommentss) => {
-            this.reviewsCardCommentProfessors = reviewcommentss;
-            this.filteredReviewCommentProfessor = [...reviewcommentss];
-          },
-          (error) => {
-            console.error('Error loading reviewcomments:', error);
-          }
-        );
+      this.reviewService.getAllReviews().subscribe(
+        reviews => this.filteredReviewProfessor = reviews,
+        error => console.error('Error loading reviews:', error)
+      );
 
-    } /*else {
-      this.id = 0; 
-    };*/
+      this.reviewCommentService.getAllReviewComments().subscribe(
+        comments => this.filteredReviewCommentProfessor = comments,
+        error => console.error('Error loading review comments:', error)
+      );
+    }
   }
 
-  
-  backReviewProfessor(profeId: any): void { 
-
-     this.id = profeId-1; 
-     this.professorServiceService.getProfessorById(this.id).subscribe( 
-      result =>  {this.professorreview = result}
-     );
-
-     //this.reviewServiceService.getReviewByIdProfessor(this.id).subscribe( 
-      this.reviewServiceService.getAllReviews().subscribe( 
-      (reviewss) => {
-        this.reviewsCardProfessors = reviewss;        
-       // this.idReview = reviewss[0].reviewId;
-        this.filteredReviewProfessor = [...reviewss];
+  navigateReviewProfessor(offset: number): void {
+    const newId = this.id + offset;
+    this.professorService.getProfessorById(newId).subscribe(
+      result => {
+        this.professorReview = result;
+        this.id = newId;
+        this.loadInitialData();
       },
-      (error) => {
-        console.error('Error loading reviews:', error);
-      }
-    );
-
-  //  this.reviewCommentServiceService.getReviewCommentsByReviewId(this.idReview).subscribe( 
-    this.reviewCommentServiceService.getAllReviewComments().subscribe(
-      (reviewcommentss) => {
-        this.reviewsCardCommentProfessors = reviewcommentss;
-        this.filteredReviewCommentProfessor = [...reviewcommentss];
-      },
-      (error) => {
-        console.error('Error loading reviewcomments:', error);
+      error => {
+        console.error('Error navigating reviews:', error);
+        this.snackBar.open('No more reviews available', 'Close', { duration: 3000 });
       }
     );
   }
 
-  forwardReviewProfessor(profeId: any): void { 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddEditReviewComentComponent, {
+      data: { professorId: this.id },
+      height: '660px',
+      width: '300px'
+    });
 
-    this.id = profeId+1; 
-    this.professorServiceService.getProfessorById(this.id).subscribe( 
-     result =>  {this.professorreview = result}
-    );
-    //this.reviewServiceService.getReviewByIdProfessor(this.id).subscribe( 
-      this.reviewServiceService.getAllReviews().subscribe( 
-      (reviewss) => {
-        this.reviewsCardProfessors = reviewss;
-       // this.idReview = reviewss[0].reviewId;
-        this.filteredReviewProfessor = [...reviewss];
-      },
-      (error) => {
-        console.error('Error loading reviews:', error);
-      }
-    );
-  //  this.reviewCommentServiceService.getReviewCommentsByReviewId(this.idReview).subscribe( 
-    this.reviewCommentServiceService.getAllReviewComments().subscribe(
-      (reviewcommentss) => {
-        this.reviewsCardCommentProfessors = reviewcommentss;
-        this.filteredReviewCommentProfessor = [...reviewcommentss];
-      },
-      (error) => {
-        console.error('Error loading reviewcomments:', error);
-      }
-    );
- }
-
- openDialog(): void {
-  const dialogRef = this.dialog.open(AddEditReviewComentComponent, {
-    data: {name: this.name, animal: this.animal},
-    height: '660px',
-    width: '300px'
-  });
-
-  dialogRef.afterClosed().subscribe(result => {
-    console.log('The dialog was closed');
-    this.animal = result;
-  });
-
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+      // Handle the result if necessary
+    });
   }
-
 }

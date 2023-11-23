@@ -1,60 +1,38 @@
-
 <main class="main">
-
-<!--==================== NEW TEACHERS====================-->
-<section class="new section container" id="new">
-    <h2 class="section__title">Nuestros Profesores</h2> 
-    <div class="new__container">
+    <!-- Sección de profesores nuevos -->
+    <section class="new section container" id="new">
+      <h2 class="section__title">Nuestros Profesores</h2>
+      <div class="new__container">
         <div class="swiper new-swiper">
-            <div class="swiper-wrapper">
-
-<!---->
-
-    <mat-card class="tarjeta" *ngFor="let professor of filteredProfessorHome"> 
-    <article class="new__card swiper-slide">
-        
-    <!-- <div class="new__overlay"></div>  -->
-  <!--  <mat-card-header>
-    <mat-card-title>{{professor.userFirstname}}, {{ professor.userLastname }}</mat-card-title>
-    <mat-card-subtitle>{{ professor.faculty }}</mat-card-subtitle>
-    </mat-card-header>  -->
-    <div class="new__overlay"></div>   
-    <img mat-card-image src="assets/img/teacher_{{professor.professorId}}.png"alt="" class="new__img">
-    <mat-card-content>
-    <h2>{{professor.userFirstname}}, {{ professor.userLastname }}</h2>
-    <p>Faculty:{{ professor.faculty }}</p>
-    <p>Review:{{ professor.professorId }}</p>
-    <p>Fecha Ingreso: {{ professor.joinDate | date:'dd/MM/yyyy'}}</p>
-    </mat-card-content>
-    <mat-card-actions>  
-    <button mat-flat-button routerLink= "/verReviewProfessor/{{professor.professorId}}" color="primary">Ver más</button>
-    </mat-card-actions>
-    <button class="button new__button">
-        <i class='bx bx-heart new__icon'></i>
-    </button>
-    </article>
-    </mat-card>
-
-<!---->
-            </div> 
-         <!--   <div>
-            <a href="/professor" class="button">Administrar</a>
-           </div>  -->
-            <div class="swiper-pagination"></div>
-            
+          <!-- Contenedor de Swiper -->
+          <div class="swiper-wrapper">
+            <!-- Tarjetas de profesores iteradas -->
+            <mat-card class="tarjeta" *ngFor="let professor of filteredProfessorHome">
+              <article class="new__card swiper-slide">
+                <!-- Imagen del profesor -->
+                <img mat-card-image src="https://w7.pngwing.com/pngs/499/396/png-transparent-professor-teacher-cute-history-s-hand-cartoon-website.png" alt="{{ professor.userFirstname }} {{ professor.userLastname }}" class="new__img">
+                <!-- Contenido de la tarjeta -->
+                <mat-card-content>
+                  <h2>{{ professor.userFirstname }}, {{ professor.userLastname }}</h2>
+                  <p>Faculty: {{ professor.faculty }}</p>
+                  <p>Review: {{ professor.professorId }}</p>
+                  <p>Fecha Ingreso: {{ professor.joinDate | date:'dd/MM/yyyy' }}</p>
+                </mat-card-content>
+                <!-- Acciones de la tarjeta -->
+                <mat-card-actions>  
+                  <button mat-flat-button routerLink="/verReviewProfessor/{{ professor.professorId }}" color="primary">Ver más</button>
+                </mat-card-actions>
+                <!-- Botón de 'me gusta' -->
+                <button class="button new__button">
+                  <i class='bx bx-heart new__icon'></i>
+                </button>
+              </article>
+            </mat-card>
+          </div>
+          <!-- Paginación de Swiper -->
+          <div class="swiper-pagination"></div>
         </div>
-        
-    </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-</main>
+      </div>
+    </section>
+  </main>
+  

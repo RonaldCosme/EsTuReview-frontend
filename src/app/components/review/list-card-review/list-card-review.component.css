@@ -1,33 +1,95 @@
-.tarjeta {
-    /*   min-width: 400px;*/
-       max-width: 600px;
-   }
-   
-   .circular {
-       border-radius: 50%;
-   }
-   
-   .contenedor2 {
-       height: 50vh;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-   }
-   
-   .example-card {
-       max-width: 400px;
-   }
-   
-   .contenedor3 { 
-       display: grid;
-       text-align: center;
-       justify-content: center;
-       align-items: center;
-   }
-   
-   .contenedor4 {
-       height: 10vh;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-   }
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilos para la barra de herramientas */
+  .professor-toolbar {
+    background-color: #1976d2; /* Color primario */
+    color: white;
+  }
+  
+  .professor-toolbar button {
+    color: white; /* Texto blanco para los botones */
+  }
+  
+  /* Estilos para el menú desplegable */
+  .mat-menu {
+    color: #333; /* Color de texto para los elementos del menú */
+  }
+  
+  .mat-menu-item {
+    font-size: 16px;
+  }
+  
+  /* Contenedor principal */
+  .review-professor-container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 20px auto; /* Centrar el contenedor */
+    padding: 15px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para el contenedor */
+  }
+  
+  .review-professor-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Estilos para la tarjeta del profesor */
+  .professor-card {
+    margin-bottom: 30px;
+  }
+  
+  .professor-image {
+    width: 100%; /* Ancho completo dentro de su contenedor */
+    max-width: 300px; /* Máximo ancho de la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+    display: block;
+    margin: 0 auto; /* Centrar la imagen */
+  }
+  
+  mat-card-content h2, mat-card-content p {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para los botones de acción */
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .add-comment-button {
+    background-color: #4caf50; /* Color para el botón de agregar comentario */
+    color: white;
+  }
+  
+  /* Estilos para las tarjetas de revisión y comentarios */
+  .review-card, .comment-card {
+    margin-bottom: 20px;
+  }
+  
+  mat-card-header {
+    background-color: #e0e0e0; /* Fondo para el encabezado de la tarjeta */
+  }
+  
+  /* Estilos para los botones LIKE y SHARE */
+  button[mat-button] {
+    margin-right: 10px;
+    color: #1976d2; /* Color para coincidir con el tema */
+  }
+  
+  /* Media queries para responsividad */
+  @media (max-width: 768px) {
+    .review-professor-container {
+      margin: 10px;
+      padding: 10px;
+    }
+  }
+  
