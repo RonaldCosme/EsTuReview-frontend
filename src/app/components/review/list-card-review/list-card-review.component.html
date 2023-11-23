@@ -23,10 +23,7 @@
         Login
     </button>
   
-    <button mat-menu-item routerLink="/moderation-action">
-        <mat-icon>build</mat-icon>
-        Moderation Action
-    </button>
+   
   
     <button mat-menu-item routerLink="/review">
         <mat-icon>rate_review</mat-icon>
@@ -38,10 +35,7 @@
         Review Comment
     </button>
   
-    <button mat-menu-item routerLink="/role">
-        <mat-icon>security</mat-icon>
-        Role
-    </button>
+    
   
     <button mat-menu-item routerLink="/professor">
         <mat-icon>school</mat-icon>
@@ -98,8 +92,20 @@
                 <p>{{ comment.text }}</p>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-button>LIKE</button>
-                <button mat-button>SHARE</button>
+                <button id="likeButton" [class.liked]="isLiked" (click)="toggleLike()">&#x2764;</button>
+                <button mat-button [matMenuTriggerFor]="shareMenu"><mat-icon>share</mat-icon></button>
+                <mat-menu #shareMenu="matMenu">
+                  <button mat-menu-item (click)="shareOnSocialMedia('facebook')">
+                    <i class="fab fa-facebook-square"></i>
+                  </button>
+                  <button mat-menu-item (click)="shareOnSocialMedia('twitter')">
+                    <i class="fab fa-twitter-square"></i>
+                  </button>
+                  <button mat-menu-item (click)="shareOnSocialMedia('linkedin')">
+                    <i class="fab fa-linkedin"></i>
+                  </button>
+                  <!-- Agrega más opciones según sea necesario -->
+                </mat-menu>
             </mat-card-actions>
         </mat-card>
     </div>

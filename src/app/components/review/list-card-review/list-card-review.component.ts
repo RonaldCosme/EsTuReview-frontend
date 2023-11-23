@@ -23,6 +23,8 @@ export class ListCardReviewComponent implements OnInit {
   filteredReviewProfessor: Review[] = [];
   filteredReviewCommentProfessor: ReviewComment[] = [];
 
+  isLiked = false;
+
   constructor(
     public dialog: MatDialog,
     private router: Router, 
@@ -35,6 +37,32 @@ export class ListCardReviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadInitialData();
+  }
+
+  toggleLike(): void {
+    this.isLiked = !this.isLiked;
+  }
+
+  shareOnSocialMedia(platform: string): void {
+    let url = '';
+    const shareUrl = encodeURIComponent('tuURLCompartida'); // Reemplaza con tu URL
+
+    switch (platform) {
+      case 'facebook':
+        url = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+        break;
+      case 'twitter':
+        url = `https://twitter.com/intent/tweet?url=${shareUrl}`;
+        break;
+      case 'linkedin':
+        url = `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`;
+        break;
+      // Agrega más casos para otras redes sociales si es necesario
+    }
+
+    if (url) {
+      window.open(url, '_blank');
+    }
   }
 
   private loadInitialData(): void {
