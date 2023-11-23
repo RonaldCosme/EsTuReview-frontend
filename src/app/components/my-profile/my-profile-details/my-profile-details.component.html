@@ -1,13 +1,25 @@
-<div class="profile-container" *ngIf="user">
-    <h2>Mi Perfil</h2>
-    <div class="profile-details">
+<div *ngIf="isLoading; else profileContent">
+  <mat-spinner></mat-spinner>
+  <p>Cargando detalles del perfil...</p>
+</div>
+
+<ng-template #profileContent>
+  <mat-card *ngIf="user; else errorContent" class="profile-card">
+    <mat-card-header>
+      <div mat-card-avatar class="profile-image"></div>
+      <mat-card-title>Mi Perfil</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="https://images.vexels.com/media/users/3/147102/isolated/preview/082213cb0f9eabb7e6715f59ef7d322a-icono-de-perfil-de-instagram.png" alt="Foto de perfil">
+    <mat-card-content>
       <p><strong>Nombre de Usuario:</strong> {{ user.userName }}</p>
       <p><strong>Nombre:</strong> {{ user.firstName }}</p>
       <p><strong>Apellido:</strong> {{ user.lastName }}</p>
-      <p><strong>Fecha de Nacimiento:</strong> {{ user.birthdate | date:'mediumDate' }}</p>
-    </div>
-  </div>
-  
-  <div *ngIf="!user">
-    <p>Cargando detalles del perfil...</p>
-  </div>
+      <p><strong>Fecha de Nacimiento:</strong> {{ user.birthdate | date: 'mediumDate' }}</p>
+      <!-- Aquí puedes añadir más detalles si lo necesitas -->
+    </mat-card-content>
+  </mat-card>
+</ng-template>
+
+<ng-template #errorContent>
+  <p *ngIf="error">{{ error }}</p>
+</ng-template>

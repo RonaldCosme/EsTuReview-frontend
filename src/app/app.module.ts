@@ -31,6 +31,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { MatSelectModule } from '@angular/material/select';
 import Swal from 'sweetalert2';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -113,7 +114,8 @@ import { ViewReviewComponent } from './components/review/view-review/view-review
     MatSnackBarModule,
     MatDialogModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule
 
     
   ],
